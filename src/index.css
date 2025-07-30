@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Mochiy+Pop+One&display=swap");
+@import "tailwindcss";
+
+:root {
+  --fonte: "Mochiy Pop One", sans-serif;
+  --fundoazul-dark: #020715;
+  --fundoazul-light: #3671c9;
+  --dourado: #976d14;
+}
+
+.fonte {
+  font-family: var(--fonte);
+}
+
+.bg-fundoazul-dark {
+  background-color: var(--fundoazul-dark);
+}
+.bg-fundoazul-light {
+  background-color: var(--fundoazul-light);
+}
+
+.corazul-light {
+  color: var(--fundoazul-light);
+}
+
+.cordourado {
+  color: var(--dourado);
+}
