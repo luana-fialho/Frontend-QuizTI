@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Mochiy+Pop+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Jockey+One&family=Mochiy+Pop+One&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -6,10 +7,15 @@
   --fundoazul-dark: #020715;
   --fundoazul-light: #3671c9;
   --dourado: #976d14;
+  --fundoazul-medium: #1a4689;
+  --fonteSecundaria: "Jockey One", sans-serif;
 }
 
 .fonte {
   font-family: var(--fonte);
+}
+.fonteSecundaria {
+  font-family: var(--fonteSecundaria);
 }
 
 .bg-fundoazul-dark {
@@ -18,9 +24,16 @@
 .bg-fundoazul-light {
   background-color: var(--fundoazul-light);
 }
+.bg-fundoazul-medium {
+  background-color: var(--fundoazul-medium);
+}
 
 .corazul-light {
   color: var(--fundoazul-light);
+}
+
+.corazul-dark {
+  color: var(--fundoazul-dark);
 }
 
 .cordourado {
