@@ -1,4 +1,48 @@
-export default function LoginModal({ onClose }) {
+import { useState } from "react";
+import { useContext } from "react";
+import { UserContext } from "./UserContext.jsx";
+
+export default function LoginModal({ onClose, setLogin }) {
+  const [nome, setNome] = useState("");
+  const [idade, setIdade] = useState("");
+  const [genero, setGenero] = useState("");
+  const [mensagem, setMensagem] = useState("");
+  const { setUser } = useContext(UserContext);
+
+  const addPlayer = () => {
+    console.log("Função addPlayer chamada");
+    if (!nome) {
+      setMensagem("Preencha seu nome!");
+      return;
+    }
+    console.log("Enviando dados para a API:", { nome, idade, genero });
+    fetch("http://localhost:3000/user/cadastro", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nome, idade, genero }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Resposta:", data);
+        setMensagem("Cadastro realizado com sucesso!");
+        setLogin(true);
+        setUser(data); // Atualiza o contexto com o usuário retornado da API
+        localStorage.setItem("nomeJogador", nome);
+
+        setTimeout(() => {
+          onClose();
+        }, 1500);
+      })
+      .catch((err) => {
+        console.error("Erro no cadastro:", err);
+        setMensagem("Erro ao cadastrar. Tente novamente.");
+      });
+  };
+
+  function changeGenero(e) {
+    setGenero(e.target.value);
+  }
+
   return (
     <div className="flex flex-col bg-fundoazul-medium h-150 w-100 rounded-4xl">
       <header className="relative flex justify-center items-center">
@@ -19,6 +63,8 @@ export default function LoginModal({ onClose }) {
           type="text"
           id="name"
           placeholder="Digite seu nome"
+          value={nome}
+          onChange={(e) => setNome(e.target.value)}
         />
         <label htmlFor="old">
           <h2 className="text-white fonte text-3xl pb-3">Idade:</h2>
@@ -28,6 +74,8 @@ export default function LoginModal({ onClose }) {
           type="text"
           id="old"
           placeholder="Digite sua idade"
+          value={idade}
+          onChange={(e) => setIdade(e.target.value)}
         />
         <h2 className="text-white fonte text-3xl pb-3">Gênero</h2>
         <div className="fonteSecundaria text-white text-xl flex flex-wrap justify-center">
@@ -37,6 +85,8 @@ export default function LoginModal({ onClose }) {
               type="radio"
               id="m"
               name="genero"
+              value="masc"
+              onChange={changeGenero}
             />
             Masculino
           </label>
@@ -46,6 +96,8 @@ export default function LoginModal({ onClose }) {
               type="radio"
               id="f"
               name="genero"
+              value="fem"
+              onChange={changeGenero}
             />
             Feminino
           </label>
@@ -55,15 +107,26 @@ export default function LoginModal({ onClose }) {
               type="radio"
               name="genero"
               id="o"
+              value="outro"
+              onChange={changeGenero}
             />
             Outro
           </label>
         </div>
 
-        <button className="fonte corazul-dark bg-white w-55 h-13 text-lg rounded-4xl flex justify-center items-center m-3 cursor-pointer">
+        <button
+          onClick={addPlayer}
+          className="fonte corazul-dark bg-white w-55 h-13 text-lg rounded-4xl flex justify-center items-center m-3 cursor-pointer hover:scale-110 transition-transform"
+        >
           Continuar
         </button>
       </div>
+      {mensagem && (
+        <p className="text-white mt-4 bg-green-700 px-4 py-2 rounded-xl">
+          {mensagem}
+        </p>
+      )}
+      {console.log({ nome, idade, genero })}
     </div>
   );
 }
