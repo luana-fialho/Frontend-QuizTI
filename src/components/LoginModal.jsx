@@ -16,7 +16,7 @@ export default function LoginModal({ onClose, setLogin }) {
       return;
     }
     console.log("Enviando dados para a API:", { nome, idade, genero });
-    fetch("http://localhost:3000/user/cadastro", {
+    fetch("http://backend-quizti-production.up.railway.app/user/cadastro", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ nome, idade, genero }),

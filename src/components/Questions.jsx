@@ -15,13 +15,16 @@ export default function Questions() {
   console.log(tema);
   useEffect(() => {
     if (tema) {
-      fetch("http://localhost:3000/questions/perguntas", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ categoria: tema }),
-      })
+      fetch(
+        "http://backend-quizti-production.up.railway.app/questions/perguntas",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ categoria: tema }),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log("Perguntas recebidas:", data);

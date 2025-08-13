@@ -44,7 +44,7 @@ export default function Results({ id_jogador, pontuacao, data }) {
 
     const pontuacao = calcularPontuacao();
 
-    fetch("http://localhost:3000/results/pontuacao", {
+    fetch("http://backend-quizti-production.up.railway.app/results/pontuacao", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -58,11 +58,14 @@ export default function Results({ id_jogador, pontuacao, data }) {
         return res.json();
       })
       .then(() =>
-        fetch("http://localhost:3000/results/ranking", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ tema }),
-        })
+        fetch(
+          "http://backend-quizti-production.up.railway.app/results/ranking",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ tema }),
+          }
+        )
       )
       .then((res) => {
         if (!res.ok) throw new Error("Erro ao buscar ranking");
