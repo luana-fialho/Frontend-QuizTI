@@ -1,14 +1,51 @@
-# Frontend-QuizTI
+# Frontend QuizTI
 
-# React + Vite
+## Sobre o projeto
+Frontend do **QuizTI**, um quiz de TI com categorias de **Back-end, Front-end e Dados**.  
+O usuário pode responder perguntas, ver sua pontuação e consultar o ranking.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## Tecnologias utilizadas
+- **React**  
+- **Tailwind CSS**  
+- **React Router**  
+- **Context API** (para gerenciar usuário)  
+- **Fetch API** (para integração com o backend Node.js)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Funcionalidades
+- Cadastro e identificação do jogador  
+- Seleção de tema (Back-end, Front-end ou Dados)  
+- Respostas e pontuação automática  
+- Visualização do ranking atualizado  
+- Navegação entre páginas com React Router  
+- Interface responsiva com Tailwind  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Como rodar o projeto
+
+### Pré-requisitos
+- Node.js instalado  
+- Backend rodando localmente (API do QuizTI)
+- Link do repositório: https://github.com/luana-fialho/Backend-QuizTI
+  
+### Passos
+1. Clone o repositório:
+```bash
+git clone https://github.com/luana-fialho/Frontend-QuizTI.git
+```
+2. Entre na pasta do projeto:
+```bash
+cd Frontend-QuizTI
+```
+3. Instale as dependências:
+```bash
+npm install
+```
+4. Rode o projeto:
+```bash
+npm run dev
+```
