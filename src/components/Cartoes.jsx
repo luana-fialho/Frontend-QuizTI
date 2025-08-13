@@ -31,7 +31,7 @@ export default function Cartoes({ tema, login }) {
         onClick={() => {
           openQuestions();
         }}
-        className="bg-fundoazul-light box-border w-90 h-90 border-4 p-4 flex justify-center items-center rounded-4xl m-2 hover:scale-110 transition-transform"
+        className="bg-fundoazul-light box-border w-90 h-90 border-4 p-4 flex justify-center items-center rounded-4xl m-2 cursor-pointer hover:scale-110 transition-transform"
       >
         <h1 className="fonte text-4xl text-white">{temaConvertido}</h1>
       </div>

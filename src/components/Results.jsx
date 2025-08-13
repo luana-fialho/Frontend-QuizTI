@@ -113,14 +113,29 @@ export default function Results({ id_jogador, pontuacao, data }) {
         </div>
         <div className="absolute right-40 top-20 bg-teal-800/55 w-140 h-200 rounded-4xl flex flex-col items-center">
           <h1 className="fonte text-white text-4xl mt-10">Ranking</h1>
-          <div className="w-100 h-150 bg-white mt-10">
+          <h2 className="fonte text-white cordourado text-2xl mt-5">
+            {temaConvertido}
+          </h2>
+          <div className="w-100 h-130 rounded-2xl p-3 bg-white mt-10">
+            <div className="flex justify-between text-2xl fonte m-2">
+              <h2>Jogador</h2>
+              <h2>Pontuação</h2>
+              <p className="absolute right-21 top-50">
+                _________________________
+              </p>
+            </div>
             {ranking.length === 0 ? (
               <p>Nenhum ranking disponível</p>
             ) : (
               ranking.map((item, index) => (
-                <div key={item.id || index} className="mb-2">
-                  <strong>{index + 1}.</strong> {item.nome} - {item.pontuacao}{" "}
-                  pts
+                <div
+                  key={item.id || index}
+                  className="flex justify-between mb-2 pt-2 text-2xl"
+                >
+                  <p>
+                    <strong>{index + 1}.</strong> {item.nome}
+                  </p>
+                  <p>{item.pontuacao}</p>
                 </div>
               ))
             )}
