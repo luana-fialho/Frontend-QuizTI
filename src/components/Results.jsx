@@ -44,22 +44,25 @@ export default function Results({ id_jogador, pontuacao, data }) {
 
     const pontuacao = calcularPontuacao();
 
-    fetch("http://backend-quizti-production.up.railway.app/results/pontuacao", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        id_jogador: user.id,
-        pontuacao,
-        tema,
-      }),
-    })
+    fetch(
+      "https://backend-quizti-production.up.railway.app/results/pontuacao",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id_jogador: user.id,
+          pontuacao,
+          tema,
+        }),
+      }
+    )
       .then((res) => {
         if (!res.ok) throw new Error("Erro ao salvar pontuação");
         return res.json();
       })
       .then(() =>
         fetch(
-          "http://backend-quizti-production.up.railway.app/results/ranking",
+          "https://backend-quizti-production.up.railway.app/results/ranking",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
