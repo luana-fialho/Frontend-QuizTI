@@ -16,11 +16,14 @@ export default function LoginModal({ onClose, setLogin }) {
       return;
     }
     console.log("Enviando dados para a API:", { nome, idade, genero });
-    fetch("https://backend-quizti-production.up.railway.app/user/cadastro", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nome, idade, genero }),
-    })
+    fetch(
+      "https://backend-quizti-production-1e6d.up.railway.app/user/cadastro",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nome, idade, genero }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log("Resposta:", data);

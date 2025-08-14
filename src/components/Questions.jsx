@@ -16,7 +16,7 @@ export default function Questions() {
   useEffect(() => {
     if (tema) {
       fetch(
-        "https://backend-quizti-production.up.railway.app/questions/perguntas",
+        "https://backend-quizti-production-1e6d.up.railway.app/questions/perguntas",
         {
           method: "POST",
           headers: {

@@ -45,7 +45,7 @@ export default function Results({ id_jogador, pontuacao, data }) {
     const pontuacao = calcularPontuacao();
 
     fetch(
-      "https://backend-quizti-production.up.railway.app/results/pontuacao",
+      "https://backend-quizti-production-1e6d.up.railway.app/results/pontuacao",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -62,7 +62,7 @@ export default function Results({ id_jogador, pontuacao, data }) {
       })
       .then(() =>
         fetch(
-          "https://backend-quizti-production.up.railway.app/results/ranking",
+          "https://backend-quizti-production-1e6d.up.railway.app/results/ranking",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
