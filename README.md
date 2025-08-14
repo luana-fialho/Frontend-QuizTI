@@ -46,7 +46,7 @@ cd Frontend-QuizTI
 npm install
 ```
 4. Atualize os fetch
-Troque as URL por aquelas que leva ao seu back (ex: http://localhost/3000/user/cadastro)
+- Troque as URL por aquelas que leva ao seu back (ex: http://localhost/3000/user/cadastro)
 
 5. Rode o projeto:
 ```bash
